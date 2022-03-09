@@ -17,8 +17,6 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
         {% block stylesheets %}
-        <style>
-        </style>
         {% endblock stylesheets %}
     </head>
     <body id="page-top">
@@ -26,19 +24,10 @@
 
 
         {% include 'includes/navbar.html' %}
-        <!-- Masthead-->
-        {% include 'includes/header.html' %}
-
-        {% include 'includes/sections/about.html' %}
-        {% include 'includes/sections/portfolio.html' %}
-        {% include 'includes/sections/contact.html' %}
-
+        
+        {% block main %}{% endblock %}
 
         {% include 'includes/footer.html' %}
-        <!-- Portfolio Modals-->
-        {% include 'includes/modal.html' %}
-
-
         {% include 'includes/script.html' %}
         {% block javascripts %}
         {% endblock javascripts %}

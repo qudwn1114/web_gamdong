@@ -1,6 +1,8 @@
 from django.urls.conf import path
-from gamdong.views import HomeView
+from gamdong.views import HomeView, CarDetailView
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
+    path('vehicle-detail/<int:pk>', CarDetailView.as_view(), name='vehicle-detail'),
+
 ]

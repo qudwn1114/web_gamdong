@@ -1,7 +1,20 @@
+{% load static %}
 <header class="masthead">
     <div class="container">
-        <div class="masthead-subheading">Welcome To Our Studio!</div>
-        <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+        <div class="masthead-subheading">안녕하세요!</div>
+        <div class="masthead-heading text-uppercase">
+            <img class="img-fluid" src="{% static 'assets/img/logos/gamdong.png' %}" alt="..." style="width: 35%; height: auto;"/>
+        </div>
+        <div class="masthead-subheading">
+            <div class="row">
+                <div class="col-6 text-end"> 대표직통번호 :</div>
+                <div class="col-6 text-start">010-xxxx-xxxx</div>
+            </div>
+            <div class="row">
+                <div class="col-6 text-end">유선번호 : </div>
+                <div class="col-6 text-start">02-xxx-xxxx</div>
+            </div>
+        </div>
+        <a class="btn btn-primary btn-xl text-uppercase" data-bs-toggle="modal" href="#portfolioModal1"> 회사소개</a>
     </div>
 </header>

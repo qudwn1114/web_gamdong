@@ -1,0 +1,119 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block stylesheets %}
+<style>
+  .gallery-image:hover{
+    opacity: 0.5;
+  }
+</style>
+{% endblock stylesheets %}
+
+{% block main %}
+<header class="masthead">
+    <div class="container">
+        <h1 class="display-2"><b>{{vehicle.title}}</b></h1>
+        <div class="row">
+            {% if detail %}
+            {% for i in detail %}
+            {% if forloop.counter|divisibleby:2 %}
+            <div class="col-6 mb-3 text-start">
+                <div class="portfolio-item">
+                    <img class="img-fluid img-thumbnail" src="{{i.path}}" alt="..." style="width: 70%;"/>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-6 mb-3 text-end">
+                <div class="portfolio-item">
+                    <img class="img-fluid img-thumbnail" src="{{i.path}}" alt="..." style="width: 70%;"/>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <p>data가 없습니다...</p>
+            {% endif %}
+        </div>
+        <div>
+        <p class="text-white bg-dark p-3">영상 : 풀칼라LED 4mm,5mm,6mm 100~120인치음향 : 15인치 더블 4kw발전기 : 무소음발전기7kw</p>
+    </div>
+</header>
+<section class="page-section">
+    {% if not select_obj %}
+    <div class="container" style="width: 80%;">
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">
+            <div class="row">
+                <div class="col-3 mb-3">
+                <select class="form-select" id="search-type">
+                    {% if search_type == 'title' %}
+                    <option value="title" selected>제목</option>
+                    {% else %}
+                    <option value="title">제목</option>
+                    {% endif %}
+                    {% if search_type == 'user' %}
+                    <option value="user" selected>사용자</option>
+                    {% else %}
+                    <option value="user">사용자</option>
+                    {% endif %}
+                </select>
+                </div>
+                <div class="col-9 d-flex mb-3">
+                    <input id="search-keyword" type="text" class="form-control" placeholder="Input keywords" value="{{search_keyword}}" onkeyup="enterkey()">
+                    <button id="btn-search" type="button" class="ms-2 btn btn-secondary">Search</button>
+                </div>
+            </div>
+        </div>
+        <hr style="height:3px"/>
+        <div class="row">
+            {% if gallery %}
+            {% for i in gallery %}
+            <div class="col-3 mb-3 mt-3">
+                <div class="portfolio-item">
+                    <a href="?select_obj={{i.id}}">
+                        <img class="img-fluid gallery-image" src="{% static 'assets/img/portfolio/1.jpg' %}" alt="..." style="cursor:pointer;"/>
+                    </a>
+                </div>
+                <div class="text-center">
+                    {{i.title}}
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>data가 없습니다...</p>
+            {% endif %}
+        </div>
+        <hr style="height:3px"/>  
+    </div>
+    {% else %}
+    <div id="article" class="container" style="width: 80%;">
+        <article>
+            <h2 class="text-uppercase ms-3">{{select_obj.title}}</h2>
+            <p class="item-intro text-muted ms-3">{{select_obj.created_at}}</p>
+            <hr style="height:3px"/>
+            <div class="row mt-5 text-center">
+                {% if gallery_detail %}
+                {% for i in gallery_detail %}
+                <div class="portfolio-item mb-3">
+                    <img class="img-fluid" src="{{i.path}}" alt="..." />
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>data가 없습니다...</p>
+                {% endif %}
+            </div>
+            <hr style="height:3px"/>
+            <div class="text-end">
+                <button id="btn-list" type="button" class="btn btn-secondary btn-lg" style="width: 140px;">목록</button>
+            </div>
+        </article>
+    </div>
+    {% endif %}
+</section>
+
+{% endblock %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script type="text/javascript" src="{% static 'js/gamdong/script_detail.js' %}"></script>
+{% endblock javascripts %}
