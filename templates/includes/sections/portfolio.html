@@ -3,8 +3,8 @@
 <section class="page-section bg-light" id="portfolio">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Portfolio</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">차량소개</h2>
+            <h3 class="section-subheading text-muted">제작 및 납품 차량 소개</h3>
         </div>
         <div class="row">
             {% if vehicle %}
@@ -15,7 +15,7 @@
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{{i.path}}" alt="..." />
+                            <img class="img-fluid" src="{{i.path}}" alt="..." style="height:350px;"/>
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">{{i.title}}</div>
