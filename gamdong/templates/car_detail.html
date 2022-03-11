@@ -18,13 +18,13 @@
             {% if forloop.counter|divisibleby:2 %}
             <div class="col-6 mb-3 text-start">
                 <div class="portfolio-item">
-                    <img class="img-fluid img-thumbnail" src="{{i.path}}" alt="..." style="width: 70%;"/>
+                    <img class="img-fluid img-thumbnail" src="{{i.path}}" alt="..." style="width: 70%; height: 300px;"/>
                 </div>
             </div>
             {% else %}
             <div class="col-6 mb-3 text-end">
                 <div class="portfolio-item">
-                    <img class="img-fluid img-thumbnail" src="{{i.path}}" alt="..." style="width: 70%;"/>
+                    <img class="img-fluid img-thumbnail" src="{{i.path}}" alt="..." style="width: 70%; height:300px;"/>
                 </div>
             </div>
             {% endif %}
@@ -34,7 +34,7 @@
             {% endif %}
         </div>
         <div>
-        <p class="text-white bg-dark p-3">영상 : 풀칼라LED 4mm,5mm,6mm 100~120인치음향 : 15인치 더블 4kw발전기 : 무소음발전기7kw</p>
+        <p class="text-white bg-dark p-3">{{vehicle.description}}</p>
     </div>
 </header>
 <section class="page-section">
@@ -71,7 +71,7 @@
             <div class="col-3 mb-3 mt-3">
                 <div class="portfolio-item">
                     <a href="?select_obj={{i.id}}">
-                        <img class="img-fluid gallery-image" src="{% static 'assets/img/portfolio/1.jpg' %}" alt="..." style="cursor:pointer;"/>
+                        <img class="img-fluid gallery-image" src="{{i.path}}" alt="..." style="cursor:pointer; width: 350px; height: 200px;"/>
                     </a>
                 </div>
                 <div class="text-center">
