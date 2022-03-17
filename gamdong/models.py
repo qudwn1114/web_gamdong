@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 
 # Create your models here.
 class ElectionVehicle(models.Model):
@@ -6,6 +8,9 @@ class ElectionVehicle(models.Model):
     description = models.TextField(db_column='description')
     path = models.CharField(db_column='path', max_length=1024)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='생성시간')
+
+    def get_absolute_url(self):
+        return reverse('vehicle-detail', kwargs={'pk': self.pk})
     
     class Meta :
         db_table = 'election_vehicle'

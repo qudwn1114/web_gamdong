@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
-from gamdong.sitemaps import StaticViewSitemap
+from config.sitemaps import StaticViewSitemap
+from gamdong.sitemaps import VehicleSitemap
 
 sitemaps = {
-    'static':StaticViewSitemap
+    'static':StaticViewSitemap,
+    'vehicle': VehicleSitemap,
 }
 
 urlpatterns = [
