@@ -7,3 +7,4 @@ urlpatterns = [
     path('vehicle-detail/<int:pk>', CarDetailView.as_view(), name='vehicle-detail'),
     path('robots.txt',  TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),
 ]
+
