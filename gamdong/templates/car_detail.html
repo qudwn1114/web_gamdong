@@ -15,19 +15,11 @@
         <div class="row">
             {% if detail %}
             {% for i in detail %}
-            {% if forloop.counter|divisibleby:2 %}
-            <div class="col-6 mb-3 text-start">
-                <div class="portfolio-item">
-                    <img class="img-fluid img-thumbnail" src="{{i.path}}" alt="..." style="width: 70%; height: 300px;"/>
-                </div>
-            </div>
-            {% else %}
-            <div class="col-6 mb-3 text-end">
+            <div class="col-lg-6 col-sm-12 mb-3">
                 <div class="portfolio-item">
                     <img class="img-fluid img-thumbnail" src="{{i.path}}" alt="..." style="width: 70%; height:300px;"/>
                 </div>
             </div>
-            {% endif %}
             {% endfor %}
             {% else %}
             <p>data가 없습니다...</p>
@@ -40,35 +32,12 @@
 <section class="page-section">
     {% if not select_obj %}
     <div class="container" style="width: 80%;">
-        <div class="row">
-            <div class="col-6"></div>
-            <div class="col-6">
-            <div class="row">
-                <div class="col-3 mb-3">
-                <select class="form-select" id="search-type">
-                    {% if search_type == 'title' %}
-                    <option value="title" selected>제목</option>
-                    {% else %}
-                    <option value="title">제목</option>
-                    {% endif %}
-                    {% if search_type == 'user' %}
-                    <option value="user" selected>사용자</option>
-                    {% else %}
-                    <option value="user">사용자</option>
-                    {% endif %}
-                </select>
-                </div>
-                <div class="col-9 d-flex mb-3">
-                    <input id="search-keyword" type="text" class="form-control" placeholder="Input keywords" value="{{search_keyword}}" onkeyup="enterkey()">
-                    <button id="btn-search" type="button" class="ms-2 btn btn-secondary">Search</button>
-                </div>
-            </div>
-        </div>
+        <h2 class="text-uppercase ms-3">gallery</h2>
         <hr style="height:3px"/>
         <div class="row">
             {% if gallery %}
             {% for i in gallery %}
-            <div class="col-3 mb-3 mt-3">
+            <div class="col-lg-3 col-sm-6 mb-3 mt-3">
                 <div class="portfolio-item">
                     <a href="?select_obj={{i.id}}">
                         <img class="img-fluid gallery-image" src="{{i.path}}" alt="..." style="cursor:pointer; width: 350px; height: 200px;"/>

@@ -23,12 +23,7 @@ class CarDetailView(View):
         context['detail'] = detail
         context['gallery'] = gallery
 
-        search_type = self.request.GET.get('search_type', '')
-        search_keyword = self.request.GET.get('search_keyword', '')
         select_obj = self.request.GET.get('select_obj', '')
-        if search_keyword:
-            context['search_type'] = search_type
-            context['search_keyword'] = search_keyword
         if select_obj:
             obj = ElectionVehicleGallery.objects.get(id=select_obj)
             gallery_detail = ElectionVehicleGalleryDetail.objects.filter(gallery=obj)
