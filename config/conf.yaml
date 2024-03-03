@@ -1,0 +1,11 @@
+SECRET_KEY: 'django-insecure-wvr*hmpt&!%*(^@np8&b=io0l9d&54g=3n^z108o&m#yh*dsh0'
+
+DEBUG: TRUE
+
+ALLOWED_HOSTS: ['*']
+
+EMAILS:
+  EMAIL_HOST: smtp.gmail.com
+  EMAIL_PORT: 587
+  EMAIL_HOST_USER: smtpuser1114@gmail.com
+  EMAIL_HOST_PASSWORD: ibjicluzzpxeraxi
