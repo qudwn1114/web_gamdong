@@ -46,7 +46,7 @@ def contact(request: HttpRequest):
     email = request.POST['email']
     phone = request.POST['phone']
     message = request.POST['message']
-    to_email = 'qudwn1114@gmail.com'
+    to_email = 'dh1630@naver.com'
 
     try:
         message = render_to_string('contact_email.html', {
